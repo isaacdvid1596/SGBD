@@ -6,7 +6,11 @@
 package gbd_sqlite;
 
 
+import java.awt.Component;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -17,6 +21,7 @@ public class MainPage extends javax.swing.JFrame {
 
     DBManager dbm;
     Login log;
+    private Component frame;
     
     
     
@@ -31,6 +36,11 @@ public class MainPage extends javax.swing.JFrame {
         log = LG;
         log.setVisible(false);
         this.setVisible(true);
+    }
+    
+    private void initComponentValues() throws Exception
+    {
+       //dbm.populateComboBox(createIndexTablecmb, "select * from sqlite_master;");
     }
 
     /**
@@ -52,12 +62,34 @@ public class MainPage extends javax.swing.JFrame {
         ShowTable_Button = new javax.swing.JButton();
         Edit_Button = new javax.swing.JButton();
         Delete_Button = new javax.swing.JButton();
+        disconnectbtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        createIndextxt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        createIndexbtn = new javax.swing.JButton();
+        createIndexTabletxt = new javax.swing.JTextField();
+        createIndexColumntxt = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        createTriggerNametxt = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        createTriggerActiontxt = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        CreateTriggerTimetxt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        TriggerCreateTableName = new javax.swing.JTextField();
+        createTriggerbtn = new javax.swing.JToggleButton();
         jPanel8 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        createViewNametxt = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        createViewTableName = new javax.swing.JTextField();
+        CreateViewbtn = new javax.swing.JToggleButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -105,6 +137,13 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
+        disconnectbtn.setText("Disconnect");
+        disconnectbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                disconnectbtnMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,16 +157,19 @@ public class MainPage extends javax.swing.JFrame {
                         .addComponent(Show_Button)
                         .addGap(34, 34, 34)
                         .addComponent(Update_Button))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(ShowTable_Button)
-                        .addGap(60, 60, 60)
-                        .addComponent(Edit_Button)
-                        .addGap(64, 64, 64)
-                        .addComponent(Delete_Button)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(247, 247, 247)
+                            .addComponent(ShowTable_Button)
+                            .addGap(60, 60, 60)
+                            .addComponent(Edit_Button)
+                            .addGap(64, 64, 64)
+                            .addComponent(Delete_Button)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(disconnectbtn))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -144,7 +186,8 @@ public class MainPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ShowTable_Button)
                     .addComponent(Edit_Button)
-                    .addComponent(Delete_Button))
+                    .addComponent(Delete_Button)
+                    .addComponent(disconnectbtn))
                 .addGap(25, 25, 25))
         );
 
@@ -154,50 +197,185 @@ public class MainPage extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Table", jPanel5);
+
+        jLabel1.setText("Index Name");
+
+        jLabel2.setText("Table Name");
+
+        jLabel3.setText("Column Name");
+
+        createIndexbtn.setText("Create");
+        createIndexbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createIndexbtnMouseClicked(evt);
+            }
+        });
+
+        createIndexTabletxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createIndexTabletxtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(333, 333, 333)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(335, 335, 335)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(333, 333, 333)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(266, 266, 266)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(createIndextxt)
+                            .addComponent(createIndexTabletxt)
+                            .addComponent(createIndexColumntxt, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(createIndexbtn)
+                .addGap(32, 32, 32))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addComponent(createIndextxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jLabel2)
+                .addGap(34, 34, 34)
+                .addComponent(createIndexTabletxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(createIndexColumntxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
+                .addComponent(createIndexbtn)
+                .addContainerGap())
         );
 
-        jTabbedPane2.addTab("Trigger", jPanel6);
+        jTabbedPane2.addTab("Index", jPanel6);
+
+        jLabel4.setText("Trigger Name");
+
+        jLabel5.setText("Action");
+
+        jLabel6.setText("Time");
+
+        jLabel7.setText("Table Name");
+
+        createTriggerbtn.setText("Create Trigger");
+        createTriggerbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createTriggerbtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(240, 240, 240)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addGap(45, 45, 45)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(createTriggerbtn)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(createTriggerNametxt)
+                        .addComponent(createTriggerActiontxt)
+                        .addComponent(CreateTriggerTimetxt)
+                        .addComponent(TriggerCreateTableName, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(createTriggerNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(CreateTriggerTimetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createTriggerActiontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(69, 69, 69)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(TriggerCreateTableName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addComponent(createTriggerbtn)
+                .addGap(57, 57, 57))
         );
 
-        jTabbedPane2.addTab("Index", jPanel7);
+        jTabbedPane2.addTab("Trigger", jPanel7);
+
+        jLabel8.setText("View Name");
+
+        jLabel9.setText("Table Name");
+
+        CreateViewbtn.setText("Create");
+        CreateViewbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CreateViewbtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(244, 244, 244)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CreateViewbtn)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel9)
+                        .addComponent(jLabel8)
+                        .addComponent(createViewNametxt, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                        .addComponent(createViewTableName)))
+                .addContainerGap(296, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(createViewNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(jLabel9)
+                .addGap(28, 28, 28)
+                .addComponent(createViewTableName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addComponent(CreateViewbtn)
+                .addGap(87, 87, 87))
         );
 
         jTabbedPane2.addTab("View", jPanel8);
@@ -273,25 +451,29 @@ public class MainPage extends javax.swing.JFrame {
             if(selectedIndex==0)
             {
                 dbm.executeSQL(dbm.deleteTable(selectedText));
-                System.out.println(selectedText+" deleted !");
+                //System.out.println(selectedText+" deleted !");
+                JOptionPane.showMessageDialog(frame, selectedText+" deleted!");
             }
             
             else if(selectedIndex==1)
             {
                 dbm.executeSQL(dbm.deleteIndex(selectedTextforIndex));
-                System.out.println(selectedTextforIndex+" deleted !");
+                //System.out.println(selectedTextforIndex+" deleted !");
+                JOptionPane.showMessageDialog(frame, selectedTextforIndex+" deleted!");
             }
             
             else if(selectedIndex==2)
             {
                 dbm.executeSQL(dbm.deleteTrigger(selectedTextforIndex));
-                System.out.println(selectedTextforIndex+" deleted !");
+                //System.out.println(selectedTextforIndex+" deleted !");
+                JOptionPane.showMessageDialog(frame, selectedTextforIndex+" deleted!");
             }
             
             else if(selectedIndex==3)
             {
                 dbm.executeSQL(dbm.deleteView(selectedTextforIndex));
-                System.out.println(selectedTextforIndex+" deleted !");
+                //System.out.println(selectedTextforIndex+" deleted !");
+                JOptionPane.showMessageDialog(frame, selectedTextforIndex+" deleted!");
             }
             
 
@@ -368,6 +550,78 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Show_ComboBoxActionPerformed
 
+    private void createIndexbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createIndexbtnMouseClicked
+        // TODO add your handling code here:
+        String indexName = createIndextxt.getText();
+        String tableName = createIndexTabletxt.getText();
+        String columnName = createIndexColumntxt.getText();
+     
+    
+        try
+        {
+            dbm.executeSQL(dbm.createIndex(indexName, tableName, columnName));
+            System.out.println(indexName+" created");
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("index could not be created");
+        }
+        
+    }//GEN-LAST:event_createIndexbtnMouseClicked
+
+    private void createIndexTabletxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createIndexTabletxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createIndexTabletxtActionPerformed
+
+    
+    
+    //not working
+    private void createTriggerbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createTriggerbtnMouseClicked
+        // TODO add your handling code here:
+        String triggerName = createTriggerNametxt.getText();
+        String triggerTime = CreateTriggerTimetxt.getText();
+        String triggerAction = createTriggerActiontxt.getText();
+        String triggerDestinationTable = TriggerCreateTableName.getText();
+        
+         try
+        {
+            dbm.executeSQL(dbm.createTriggers(triggerName, triggerTime, triggerAction, triggerDestinationTable));
+            System.out.println(triggerName+" created");
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("trigger could not be created");
+        }
+        
+    }//GEN-LAST:event_createTriggerbtnMouseClicked
+
+    private void CreateViewbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateViewbtnMouseClicked
+        // TODO add your handling code here:
+        String viewName = createViewNametxt.getText();
+        String viewDestinyTable = createViewTableName.getText();
+        
+          try
+        {
+            dbm.executeSQL(dbm.createView(viewName, viewDestinyTable));
+            System.out.println(viewName+" created");
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(frame,"View can't be created.","Inane",JOptionPane.WARNING_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_CreateViewbtnMouseClicked
+
+    private void disconnectbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disconnectbtnMouseClicked
+        try {
+            // TODO add your handling code here:
+            dbm.disconnect();
+            
+        } catch (Exception ex) {
+            Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_disconnectbtnMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -404,13 +658,35 @@ public class MainPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CreateTriggerTimetxt;
+    private javax.swing.JToggleButton CreateViewbtn;
     private javax.swing.JButton Delete_Button;
     private javax.swing.JButton Edit_Button;
     private javax.swing.JButton ShowTable_Button;
     private javax.swing.JButton Show_Button;
     private javax.swing.JComboBox<String> Show_ComboBox;
     private javax.swing.JTable Show_Table;
+    private javax.swing.JTextField TriggerCreateTableName;
     private javax.swing.JButton Update_Button;
+    private javax.swing.JTextField createIndexColumntxt;
+    private javax.swing.JTextField createIndexTabletxt;
+    private javax.swing.JButton createIndexbtn;
+    private javax.swing.JTextField createIndextxt;
+    private javax.swing.JTextField createTriggerActiontxt;
+    private javax.swing.JTextField createTriggerNametxt;
+    private javax.swing.JToggleButton createTriggerbtn;
+    private javax.swing.JTextField createViewNametxt;
+    private javax.swing.JTextField createViewTableName;
+    private javax.swing.JButton disconnectbtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

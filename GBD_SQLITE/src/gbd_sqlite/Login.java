@@ -5,6 +5,7 @@
  */
 package gbd_sqlite;
 
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ import java.sql.Statement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author IsaacDavid
@@ -20,6 +22,7 @@ public class Login extends javax.swing.JFrame {
 
     
     DBManager dbm;
+    private Component frame;
     
     /**
      * Creates new form Login
@@ -196,10 +199,11 @@ public class Login extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void connectDatabase() throws Exception{
-        dbm = new DBManager(username.getText(), passwordfield.getText());
+        dbm = new DBManager(username.getText(), passwordfield.getText(),dburl.getText());
         dbm.connect();
         if(dbm.conn.isValid(0)){
-            System.out.println("connected to sqlite");
+            //System.out.println("connected to sqlite");
+            JOptionPane.showMessageDialog(frame,"Connected to SQLITE , Database : "+dburl.getText());
             MainPage mp = new MainPage(dbm,this);
             this.setVisible(false);
         }

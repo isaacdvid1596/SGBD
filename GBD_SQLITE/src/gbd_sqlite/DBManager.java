@@ -23,21 +23,22 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DBManager {
     
-    private String currUsername , currPassword;
+    private String currUsername , currPassword, dbURL;
     Connection conn = null;
     PreparedStatement st = null;
     ResultSet res = null;
     
     
-    public DBManager(String username , String password){
+    public DBManager(String username , String password ,String dburl){
         currUsername = username;
         currPassword = password;
+        dbURL = dburl;
     }
     
     
     public void connect() throws Exception{
         Class.forName("org.sqlite.JDBC");
-        conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\IsaacDavid\\Desktop\\db\\tutorial.db");
+        conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\IsaacDavid\\Desktop\\db\\"+dbURL);
     }
     
     
@@ -134,7 +135,7 @@ public class DBManager {
     
     public String createIndex(String indexName,String tableName,String columnName)
     {
-        String sqlStatement = String.format("create index %s on %s(s%);",indexName,tableName,columnName);
+        String sqlStatement = String.format("create index %s on %s(%s);",indexName,tableName,columnName);
         
         return sqlStatement;
     }
@@ -159,7 +160,7 @@ public class DBManager {
    
    public String createTriggers(String triggerName, String triggerTime,String triggerAction,String tableName)
    {
-       String sqlStatement = String.format("create trigger %s %s %s on %s;",triggerName,triggerTime,triggerAction,tableName);
+       String sqlStatement = String.format("create trigger %s %s %s on %s ;",triggerName,triggerTime,triggerAction,tableName);
        
        return sqlStatement;
    }
@@ -190,7 +191,7 @@ public class DBManager {
    
    public String createView(String viewName , String tableName)
    {
-       String sqlStatement = String.format("create view %s as * from %s;",viewName,tableName);
+       String sqlStatement = String.format("create view %s as select * from %s;",viewName,tableName);
        
        return sqlStatement;
    }
