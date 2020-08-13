@@ -66,6 +66,20 @@ public class MainPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        createTableNametxt = new javax.swing.JTextField();
+        createTablebtn = new javax.swing.JToggleButton();
+        jLabel11 = new javax.swing.JLabel();
+        createTableFieldAType = new javax.swing.JTextField();
+        createTableFieldAType2 = new javax.swing.JTextField();
+        createTableFieldAType3 = new javax.swing.JTextField();
+        createTableFieldAType4 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        createTableFieldBType1 = new javax.swing.JTextField();
+        createTableFieldBType2 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        createTableFieldCType = new javax.swing.JTextField();
+        createTableFieldCType2 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         createIndextxt = new javax.swing.JTextField();
@@ -193,15 +207,90 @@ public class MainPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Show", jPanel1);
 
+        jLabel10.setText("Table Name");
+
+        createTablebtn.setText("Create");
+        createTablebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createTablebtnMouseClicked(evt);
+            }
+        });
+
+        jLabel11.setText("Field A type");
+
+        jLabel12.setText("Field B Type");
+
+        jLabel13.setText("Field C Type");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(createTablebtn)
+                .addGap(26, 26, 26))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(jLabel10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(createTableFieldCType, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(createTableFieldBType1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(createTableFieldAType, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(createTableNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(createTableFieldAType2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(createTableFieldAType3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(createTableFieldAType4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(createTableFieldBType2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(createTableFieldCType2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(createTableNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(createTableFieldAType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createTableFieldAType2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createTableFieldAType3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createTableFieldAType4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(createTableFieldBType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createTableFieldBType2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(createTableFieldCType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createTableFieldCType2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addComponent(createTablebtn)
+                .addGap(21, 21, 21))
         );
 
         jTabbedPane2.addTab("Table", jPanel5);
@@ -622,6 +711,31 @@ public class MainPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_disconnectbtnMouseClicked
 
+    private void createTablebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createTablebtnMouseClicked
+        // TODO add your handling code here:
+        
+        String tableName = createTableNametxt.getText();
+        String fielda = createTableFieldAType.getText();
+        String fielda1 = createTableFieldAType2.getText();
+        String fielda2 = createTableFieldAType3.getText();
+        String fielda3 = createTableFieldAType4.getText();
+        String fieldb = createTableFieldBType1.getText();
+        String fieldb1 = createTableFieldBType2.getText();
+        String fieldc = createTableFieldCType.getText();
+        String fieldc1 = createTableFieldCType2.getText();
+        
+           try
+        {
+            dbm.executeSQL(dbm.createTables(tableName, fielda, fielda1, fielda2, fielda3, fieldb, fieldb1, fieldc, fieldc1));
+            System.out.println(tableName+" created");
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(frame,"Table can't be created.","Inane",JOptionPane.WARNING_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_createTablebtnMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -672,6 +786,16 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JTextField createIndexTabletxt;
     private javax.swing.JButton createIndexbtn;
     private javax.swing.JTextField createIndextxt;
+    private javax.swing.JTextField createTableFieldAType;
+    private javax.swing.JTextField createTableFieldAType2;
+    private javax.swing.JTextField createTableFieldAType3;
+    private javax.swing.JTextField createTableFieldAType4;
+    private javax.swing.JTextField createTableFieldBType1;
+    private javax.swing.JTextField createTableFieldBType2;
+    private javax.swing.JTextField createTableFieldCType;
+    private javax.swing.JTextField createTableFieldCType2;
+    private javax.swing.JTextField createTableNametxt;
+    private javax.swing.JToggleButton createTablebtn;
     private javax.swing.JTextField createTriggerActiontxt;
     private javax.swing.JTextField createTriggerNametxt;
     private javax.swing.JToggleButton createTriggerbtn;
@@ -679,6 +803,10 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JTextField createViewTableName;
     private javax.swing.JButton disconnectbtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

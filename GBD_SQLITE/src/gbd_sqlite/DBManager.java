@@ -100,10 +100,10 @@ public class DBManager {
         
         return sqlStatement;
     }
-    
-    public String createTables(String values)
+   
+    public String createTables(String tableName, String fielda,String fielda1,String fielda2,String fielda3,String fieldb,String fieldb1,String fieldc, String fieldc1)
     {
-        String sqlStatement = String.format("create table %s", values);
+        String sqlStatement = String.format("create table %s (%s %s %s %s , %s %s, %s %s);", tableName,fielda,fielda1,fielda2,fielda3,fieldb,fieldb1,fieldc,fieldc1);
         
         return sqlStatement;
     }
@@ -160,10 +160,21 @@ public class DBManager {
    
    public String createTriggers(String triggerName, String triggerTime,String triggerAction,String tableName)
    {
-       String sqlStatement = String.format("create trigger %s %s %s on %s ;",triggerName,triggerTime,triggerAction,tableName);
+       String sqlStatement = String.format("create trigger %s %s %s on %s begin insert into %s ;",triggerName,triggerTime,triggerAction,tableName);
        
        return sqlStatement;
    }
+   
+   
+   
+   //    public String createTriggers(String triggerName, String triggerTime,String triggerAction,String tableName,String destinationTrigger, String param1,String param2, String param3,String param4)
+//   {
+//       String sqlStatement = String.format("create trigger %s %s %s on %s begin insert into %s (%s , %s); values (%s,%s);",
+//               triggerName,triggerTime,triggerAction,tableName,destinationTrigger,param1,param2,param3,param4);
+//       
+//       return sqlStatement;
+//   }
+   
    
    public String deleteTrigger(String triggerName)
    {

@@ -226,15 +226,140 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="createTablebtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="createTableFieldCType" min="-2" pref="150" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="createTableFieldBType1" min="-2" pref="150" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel11" max="32767" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="createTableFieldAType" min="-2" pref="150" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="createTableNametxt" min="-2" pref="250" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="createTableFieldAType2" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="createTableFieldAType3" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="createTableFieldAType4" min="-2" pref="111" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="createTableFieldBType2" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="createTableFieldCType2" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="267" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createTableNametxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createTableFieldAType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createTableFieldAType2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createTableFieldAType3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createTableFieldAType4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createTableFieldBType1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createTableFieldBType2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createTableFieldCType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="createTableFieldCType2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="128" max="32767" attributes="0"/>
+                              <Component id="createTablebtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel10">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Table Name"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="createTableNametxt">
+                    </Component>
+                    <Component class="javax.swing.JToggleButton" name="createTablebtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Create"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="createTablebtnMouseClicked"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel11">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Field A type"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="createTableFieldAType">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="createTableFieldAType2">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="createTableFieldAType3">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="createTableFieldAType4">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel12">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Field B Type"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="createTableFieldBType1">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="createTableFieldBType2">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel13">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Field C Type"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="createTableFieldCType">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="createTableFieldCType2">
+                    </Component>
+                  </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel6">
                   <Constraints>
